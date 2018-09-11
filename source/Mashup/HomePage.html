@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="script.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="jquery-3.1.0.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="HomePage.css">
+</head>
+<body style="background-image:url('https://cdn.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-7-full.jpg')">
+<form>
+<div>
+    <div id="leftDiv">
+        <h1 class="center" id="headline">
+            <a href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html"></a> Speech to Text </h1>
+        <div id="info">
+            <p id="info_start"><b>Click on the microphone icon and begin speaking.</b></p>
+            <p id="info_speak_now">Speak now.</p>
+            <p id="info_no_speech">No speech was detected. You may need to adjust your
+                <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+                    microphone settings</a>.</p>
+            <p id="info_no_microphone" style="display:none">
+                No microphone was found. Ensure that a microphone is installed and that
+                <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+                    microphone settings</a> are configured correctly.</p>
+            <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
+            <p id="info_denied">Permission to use microphone was denied.</p>
+            <p id="info_blocked">Permission to use microphone is blocked. To change,
+                go to chrome://settings/contentExceptions#media-stream</p>
+            <p id="info_upgrade">Speech to text
+                Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+                version 25 or later.</p>
+        </div>
+        <div class="right">
+            <button id="start_button" onclick="startButton(event)">
+                <img id="start_img" src="mic.gif" alt="Start"></button>
+        </div>
+        <div id="results">
+            <span id="final_span" class="final"></span>
+            <span id="interim_span" class="interim"></span>
+            <p>
+        </div>
+        <div class="center">
+            <div class="sidebyside" style="text-align:right">
+                <button id="copy_button" class="button" onclick="copyButton()">
+                    Copy and Paste</button>
+                <div id="copy_info" class="info">
+                    Press Control-C to copy text.<br>(Command-C on Mac.)
+                </div>
+            </div>
+            <div class="sidebyside">
+                <button id="email_button" class="button" onclick="emailButton()">
+                    Create Email</button>
+                <div id="email_info" class="info">
+                    Text sent to default email application.<br>
+                    (See chrome://settings/handlers to change.)
+                </div>
+            </div>
+            <p>
+            <div id="div_language">
+                <select id="select_language" onchange="updateCountry()"></select>
+                &nbsp;&nbsp;
+                <select id="select_dialect"></select>
+            </div>
+        </div>
+    </div>
+    <script src="audio.js"></script>
+<div id="rightDiv">
+    <h1 class="center" id="headline">Text to Speech </h1>
+    <script>
+        function convertTextToSpeech(){
+            var text=document.getElementById("text").value;
+            var textToSpeechUrl='https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize?username=617e1065-d65c-4831-985a-940c83dd7876&password=5GGTnpwBAjhk&text='+text;
+
+            var audio="<video controls='' autoplay='' name='media'><source src='"+textToSpeechUrl+"' type='audio/ogg'></video>";
+            document.getElementById("playAudio").innerHTML=audio;
+        }
+    </script>
+    <div class="form-group">
+        <div class="col-xs-4">
+            <label>Text Here</label>
+            <br> <input class="form-control" id="text" type="text">
+        </div>
+        <br> <button type="submit" onclick="convertTextToSpeech()" class="btn btn-primary">Say it!!</button>
+    </div>
+    <div id="playAudio"></div>
+
+</div>
+</div>
+</form>
+</body>
+</html>

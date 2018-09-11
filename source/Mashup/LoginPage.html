@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login Page</title>
+    <meta name="website" content="Lab3">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="47205741613-fvge2j82edalhq213dicpqpbqbg87tkr.apps.googleusercontent.com">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="login.css">
+    <script src="fblogin.js"></script>
+    <script>
+        function registration()
+        {
+            window.location.href='Registration.html';
+        }
+        function login()
+        {
+            if(document.getElementById('username').value.length>0 && document.getElementById('password').value.length>0)
+            {
+                if(document.getElementById('username').value==localStorage.getItem('UserName')
+                    && document.getElementById('password').value==localStorage.getItem('Password'))
+                {
+                    window.location.href='HomePage.html';
+                }
+                else
+                {
+                    alert('Please enter correct details !');
+                }
+            }
+            else
+            {
+                alert('Dear user, you have missed entering few details');
+            }
+        }
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            if(profile != null || profile != undefined || profile != ''){
+                console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                console.log('Username: ' + profile.getName());
+                console.log('Image URL: ' + profile.getImageUrl());
+                console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+                window.location.href = 'HomePage.html';
+            }
+            else
+            {
+                alert('Google Sign In Failed!');
+            }
+
+        }
+
+    </script>
+
+</head>
+
+<div align="center" style="padding-top: 20px">
+    <br>
+    <br>
+   <center><p class="form-title"><div class="container"><h2><img src="https://placeholdit.imgix.net/~text?txtsize=50&txtclr=00000&txt=MASHUP&w=300&h=80"></h2></div>
+       </p></center>
+    <input type="text" id="username" placeholder="UserName" align="vertical"/><br/>
+    <br/>
+    <input type="password" id="password" placeholder="Password"/><br/>
+    <br/>
+    <br/>
+    <input type="button" id="login" value="Login" align="center" onclick="login()"/>
+    <br>
+    <br>
+    <div>
+        <label>Don't have an account ?</label>
+        <a style="color:black; font-weight: bold" href="Registration.html">Signup</a>
+    <br/>
+    <br/>
+    <div class="g-signin2" data-size="xlarge" data-onsuccess="onSignIn"></div>
+    <br>
+    <div class="fb-login-button" data-max-rows="7" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
+</div>
+</body>
+</html>
+
+
