@@ -18,6 +18,7 @@ var noteContent = '';
 // Get all notes from previous sessions and display them.
 var notes = getAllNotes();
 renderNotes(notes);
+getUsername();
 
 
 
@@ -198,5 +199,8 @@ function getAllNotes() {
 
 function deleteNote(dateTime) {
     localStorage.removeItem('note-' + dateTime);
+}
+function getUsername() {
+    document.getElementById("result").innerHTML = localStorage.getItem("UserName");
 }
 
