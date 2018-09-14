@@ -32,22 +32,22 @@
     <script>
         function login()
         {
-            if(document.getElementById('username').value.length>0 && document.getElementById('password').value.length>0)
-            {
-                if(document.getElementById('username').value==localStorage.getItem('UserName')
-                    && document.getElementById('password').value==localStorage.getItem('Password'))
-                {
-                    window.location.href='HomePage.html';
-                }
-                else
-                {
-                    alert('Please enter correct details !');
-                }
-            }
-            else
-            {
-                alert('Dear user, you have missed entering few details');
-            }
+            // if(document.getElementById('username').value.length>0 && document.getElementById('password').value.length>0)
+            // {
+            //     if(document.getElementById('username').value==localStorage.getItem('UserName')
+            //         && document.getElementById('password').value==localStorage.getItem('Password'))
+            //     {
+                    window.location.href='LoginPage.html';
+                // }
+                // else
+                // {
+                //     alert('Please enter correct details !');
+                // }
+            // }
+            // else
+            // {
+            //     alert('Dear user, you have missed entering few details');
+            // }
         }
         function registration()
         {
