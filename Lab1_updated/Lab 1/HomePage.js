@@ -204,3 +204,26 @@ function getUsername() {
     document.getElementById("result").innerHTML = localStorage.getItem("UserName");
 }
 
+ function imagePredict() {
+var url = document.getElementById("URL").value;
+    const app = new Clarifai.App({
+        apiKey: '28c3a257118f42b4854b51fec2641985'
+    });
+
+// predict the contents of an image by passing in a url
+    app.models.predict(Clarifai.GENERAL_MODEL, document.getElementById("URL").value).then(
+        function (response) {
+            console.log(response);
+            var imagename = response.outputs[0].data.concepts[0].name;
+            var accuracy = response.outputs[0].data.concepts[0].value;
+            var img = "<img src="+document.getElementById("URL").value+">";
+            document.getElementById("pic").innerHTML = img;
+            document.getElementById("imageResult").innerHTML = "Image is predicted as: "+imagename;
+            document.getElementById("imageAccuracy").innerHTML = "Prediction accuracy is: "+accuracy;
+        },
+        function (err) {
+            console.error(err);
+        }
+    );
+}
+

@@ -11,6 +11,7 @@
         // for FB.getLoginStatus().
         if (response.status === 'connected') {
             // Logged into your app and Facebook.
+            window.location.href='HomePage.html';
             testAPI();
         } else if (response.status === 'not_authorized') {
             // The person is logged into Facebook, but not your app.
@@ -35,11 +36,11 @@ function checkLoginState() {
 
 window.fbAsyncInit = function() {
     FB.init({
-        appId      : '1391919187525129',
+        appId      : '245559909477100',
         cookie     : true,  // enable cookies to allow the server to access
                             // the session
         xfbml      : true,  // parse social plugins on this page
-        version    : 'v2.8' // use graph api version 2.8
+        version    : 'v3.1' // use graph api version 2.8
     });
 
     // Now that we've initialized the JavaScript SDK, we call
@@ -83,7 +84,7 @@ function testAPI() {
     FB.api('/me', function(response) {
         if(response!=null|| response!='' || profile!='undefined')
         console.log('Successful login for: ' + response.name);
-        window.location.href='HomePage1.html';
+        window.location.href='HomePage.html';
         document.getElementById('status').innerHTML =
             'Thanks for logging in, ' + response.name + '!';
     });
