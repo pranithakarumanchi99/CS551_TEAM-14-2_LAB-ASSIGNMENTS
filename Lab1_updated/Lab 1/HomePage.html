@@ -146,11 +146,21 @@
     <div class="app">
         <h3>Text</h3>
         <div class="input-single">
-            <textarea id="note-textarea" placeholder="Get text by using voice recognition." rows="6"></textarea>
+            <textarea id="note-textarea" placeholder="Get text by using voice recognition." rows="3"></textarea>
         </div>
         <button id="start-record-btn" title="Start Recording">Start Recognition</button>
         <button id="pause-record-btn" title="Pause Recording">Pause Recognition</button>
         <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
+        <form style="font-size: x-large; font-family: Calibri">
+            Image URL: <input type="text" name="imageURL" value="" id="URL">
+        </form>
+
+        </br>
+        <button onclick="imagePredict()">Predict</button>
+        </br></br>
+        <div id="pic"></div>
+        <div id="imageResult" style=" font-size: 20px"></div>
+        <div id="imageAccuracy" style=" font-size: 20px"></div>
         <div>
             <a href="AboutPage.html">
                 <p><strong>About</strong></p></a>
@@ -161,6 +171,9 @@
             <a href="LoginPage.html">
                 <p><strong>Logout</strong></p></a>
         </div>
+
+
+
     </div>
 
 </div>
@@ -169,7 +182,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="HomePage.js"></script>
 <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
-<script src="Clarifai.js"></script>
+<!--<script src="Clarifai.js"></script>-->
 
 <!-- Only used for the demos ads. Please ignore and remove. -->
 <!--<script src="https://cdn.tutorialzine.com/misc/enhance/v3.js" async></script>-->
