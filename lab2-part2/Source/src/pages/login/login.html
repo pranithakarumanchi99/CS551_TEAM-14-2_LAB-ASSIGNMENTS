@@ -1,0 +1,93 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login UI</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<style>
+
+
+  .login-content {
+    background: gray;
+  }
+
+  .login-box {
+    background: lightblue;
+    padding: 10px 10px 0px 10px;
+    margin-top: 40px;
+  }
+
+  ion-row {
+    align-items: center;
+    text-align: center;
+  }
+
+  ion-item {
+    border-radius: 60px !important;
+    padding-left: 10px !important;
+    font-size: 0.9em;
+    margin-bottom: 05px;
+    border: 1px solid skyblue;
+    border-bottom: 0px !important;
+    box-shadow: none !important;
+  }
+
+  .signup-col {
+    margin: 0px 16px 0px 16px;
+    padding-bottom: 10px;
+  }
+
+  .submit-btn {
+    background: #51CFB1;
+    border-radius: 30px !important;
+    border: 1px solid blue;
+  }
+
+  .register-btn {
+    background: #51CFB1;
+    border-radius: 30px !important;
+    border: 1px solid blue;
+  }
+
+</style>
+
+<ion-content class="login-content" padding>
+
+  <div class="login-box">
+
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-label floating>Email Address</ion-label>
+            <ion-input type="text" #loginEmailId>
+            </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" #loginPassword>
+            </ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <br/>
+
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button (click)="login()" class="submit-btn">Login</button>
+
+        <p align="center" style="color: white"> <button ion-button (click)="register()" class="register-btn">Register</button></p>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
