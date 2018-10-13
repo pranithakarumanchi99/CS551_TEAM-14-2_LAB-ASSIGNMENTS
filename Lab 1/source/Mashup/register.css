@@ -1,0 +1,36 @@
+select
+{
+    border:solid 1px cornflowerblue;
+    padding:3px;
+}
+body
+{
+    font-family: "Arial Black";
+    font-size: large;
+}
+
+input
+{
+    -moz-border-radius: 10px;
+    font-size: large;
+    border-radius: 10px;
+    border:solid 1px cornflowerblue;
+    padding:3px;
+    class:"form-control";
+}
+div
+{
+    class:"form-group";
+    margin:10px;
+}
+#leftDiv{
+    padding-right: 5px;
+    display:table-cell;
+    text-align:right;
+}
+
+#rightDiv{
+    padding-left: 0px;
+    text-align:left;
+    display:table-cell;
+}
